@@ -30,8 +30,9 @@ def calculate_fitness(solution, items, max_weight):
 def brute_force(items, max_weight):
     best_fitness = 0
     solution = 0
+    best_solution = 0
 
-    # Przechodzimy przez wszystkie mozliwe rozwiazania 2^32
+    # Przechodzimy przez wszystkie mozliwe rozwiazania 2^n
     for i in range(2 ** len(items)):
         print(i)
 
@@ -41,11 +42,12 @@ def brute_force(items, max_weight):
         fitness = calculate_fitness(solution, items, max_weight)
         if fitness > best_fitness:
             best_fitness = fitness
-    return solution, best_fitness
+            best_solution = solution
+    return best_solution, best_fitness
 
 
-max_value = 15
-max_weight = 75
+# max_value = 15
+max_weight = 60
 
 weights = [3, 1, 6, 10, 1, 4, 9, 1, 7, 2, 6, 1, 6, 2, 2, 4, 8, 1]
 values = [7, 4, 9, 18, 9, 15, 4, 2, 6, 13, 18, 12, 12, 16, 19, 19, 10, 16]
